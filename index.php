@@ -1,4 +1,6 @@
 <?php
+require_once "models/Datenbank.php";
+
 ?>
 
 <html lang="de">
@@ -20,9 +22,9 @@
         </div>
         </div>
     </nav>
-
 </body>
-
-
 </html>
+
+
+
 

@@ -1,4 +1,14 @@
 <?php
+/*
+if (isset($_POST['submit']))
+{
+    $benutzername = $_POST['benutzername'];
+    $passwort = $_POST['passwort'];
+
+    echo $benutzername;
+}
+*/
+
 ?>
 
 <html lang="de">
@@ -21,17 +31,18 @@
     </nav>
 
     <h1 class="text-center">Onlinebanking Login</h1>
-    <form action="login.php" id="loginform" method="post">
-        <div class="form-group">
-            <label for="benutzername">Vorname</label>
-            <input type="text" class="form-control" id="benutzername" required>
-        </div>
-        <div class="form-group">
-            <label for="passwort">Passwort</label>
-            <input type="password" class="form-control" id="passwort" required>
-        </div>
 
+    <form action="authenticate.php" method="post">
+        <div class="form-group">
+            <label for="username">Vorname</label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Passwort</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
         <button type="submit" class="btn btn-default bg-dark">Login</button>
     </form>
+
 </body>
 </html>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="" />
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/models/Datenbank.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/db-config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/impressum.html" beforeDir="false" afterPath="$PROJECT_DIR$/models/impressum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/login.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +51,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609694164961</updated>
-      <workItem from="1609694166014" duration="7756000" />
+      <workItem from="1609694166014" duration="16197000" />
+      <workItem from="1609768749379" duration="3628000" />
     </task>
     <servers />
   </component>
@@ -52,21 +60,33 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609702213462">
+    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1609708248614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702213462" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609696876648">
+    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609708248614" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609702485766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609696876648" />
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702485766" />
+    <state x="833" y="418" key="Github.ShareDialog" timestamp="1609702576781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="833" y="418" key="Github.ShareDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702576781" />
+    <state x="804" y="225" key="Github.UntrackedFilesDialog" timestamp="1609702587231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="804" y="225" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702587231" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609768894517">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609768894517" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1609702469577">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609702454529">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609769945499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702454529" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609769945499" />
   </component>
 </project>
