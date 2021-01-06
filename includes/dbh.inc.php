@@ -2,10 +2,10 @@
 
 $hostname = "localhost";
 $username = "root";
-$password = "";
+$passwort = "";
 $dbname = "gummibaerbank";
 
-$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$conn = mysqli_connect($hostname, $username, $passwort, $dbname);
 
 if(!$conn)
 {

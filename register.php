@@ -2,7 +2,7 @@
     include_once 'header.php';
 ?>
 
-    <form action="./includes/register.inc.php" method="post">
+    <form action="includes/register.inc.php" method="post">
         <div class="form-group">
             <label for="firstname">Vorname</label>
             <input type="text" class="form-control" name="firstname" required>
@@ -24,14 +24,14 @@
             <input type="text" class="form-control" name="adress" required>
         </div>
         <div class="form-group">
-            <label for="password">Passwort</label>
-            <input type="password" class="form-control" name="password" required>
+            <label for="pwd">Passwort</label>
+            <input type="password" class="form-control" name="pwd" required>
         </div>
         <div class="form-group">
-            <label for="password2">Passwort wiederholen</label>
-            <input type="password" class="form-control" name="password2" required>
+            <label for="pwd2">Passwort wiederholen</label>
+            <input type="password" class="form-control" name="pwd2" required>
         </div>
-        <button type="submit" class="btn btn-default bg-dark">Registrieren</button>
+        <button type="submit" name="submit" class="btn btn-default bg-dark">Registrieren</button>
     </form>
 
 <?php
