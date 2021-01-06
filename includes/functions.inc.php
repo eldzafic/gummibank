@@ -150,3 +150,48 @@ function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $ad
     exit();
 }
 
+
+//Funktionen für Login
+
+function emptyInputLogin($benutzer, $kennwort)
+{
+    $result = null;
+    if(empty($benutzer) || empty($kennwort))
+    {
+        $result = true;
+    }
+    else
+    {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($conn, $benutzer, $kennwort)
+{
+    $emailExists = emailExists($conn, $benutzer);
+
+    if($emailExists === false)
+    {
+        header("location: ../login.php?error=wronglogin");
+        exit();
+    }
+
+
+    $passwordHashed = $emailExists["kpasswort"];
+    $checkpassword = password_verify($kennwort, $passwordHashed);
+
+    if($checkpassword === false)
+    {
+        header("location: ../login.php?error=wronglogin");
+        exit();
+    }
+    elseif($checkpassword === true)
+    {
+        session_start();
+        $_SESSION["userid"] = $emailExists["kid"];
+        $_SESSION["lastname"] = $emailExists["knachname"];
+        header("location: ../index.php");
+        exit();
+    }
+}

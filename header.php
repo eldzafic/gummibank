@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html lang="de">
 
 <head>
@@ -12,7 +16,18 @@
             <div class="navbar-nav">
                 <a class="nav-link active" href="index.php">Home</a>
                 <a class="nav-link active" href="models/impressum.html">Impressum</a>
-                <a class="nav-link active" href="login.php">Login</a>
+                <?php
+                    if(isset($_SESSION["userid"]))
+                    {
+                        echo "<a class='nav-link active' href='dashboard.php'>Dashboard</a>";
+                        echo "<a class='nav-link active' href='includes/logout.inc.php'>Logout</a>";
+                    }
+                    else
+                    {
+                        echo "<a class='nav-link active' href='login.php'>Login</a>";
+                        echo "<a class='nav-link active' href='register.php'>Registrieren</a>";
+                    }
+                ?>
             </div>
         </div>
     </div>

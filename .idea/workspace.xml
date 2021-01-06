@@ -19,10 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Skript für Datenbank hinzugefügt">
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Registrierung in die Datenbank funktioniert. Validierungen wurden auch erstellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/dbh.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/dbh.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/register.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/register.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/functions.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/login.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/login.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +78,8 @@
       <workItem from="1609694166014" duration="16197000" />
       <workItem from="1609768749379" duration="4990000" />
       <workItem from="1609848766326" duration="2823000" />
-      <workItem from="1609886442977" duration="11623000" />
+      <workItem from="1609886442977" duration="11771000" />
+      <workItem from="1609938185123" duration="12168000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -98,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609851562815</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Registrierung in die Datenbank funktioniert. Validierungen wurden auch erstellt">
+      <created>1609898182559</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609898182559</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,13 +131,18 @@
     <MESSAGE value="etwas erweitert" />
     <MESSAGE value="Struktur überarbeitet, Login und Register angefangen" />
     <MESSAGE value="Skript für Datenbank hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skript für Datenbank hinzugefügt" />
+    <MESSAGE value="Registrierung in die Datenbank funktioniert. Validierungen wurden auch erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registrierung in die Datenbank funktioniert. Validierungen wurden auch erstellt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1609708248614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609708248614" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609965707176">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609965707176" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609702485766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -139,18 +155,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="804" y="225" key="Github.UntrackedFilesDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702587231" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609886953307">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1609965719814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609886953307" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609965719814" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1609702469577">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609851564268">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609898185989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609851564268" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609898185989" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -163,9 +179,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609851539494">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609898132801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609851539494" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609898132801" />
   </component>
 </project>
