@@ -146,8 +146,8 @@ function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $ad
     mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $telephonenumber, $email, $adress, $hashedPassword);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../register.php?error=none");
-    exit();
+    //header("location: ../register.php?error=none");
+    ///exit();
 }
 
 
@@ -194,4 +194,58 @@ function loginUser($conn, $benutzer, $kennwort)
         header("location: ../index.php");
         exit();
     }
+}
+
+
+//Funktionen für erstellung von einem Konto wenn sich der Kunde registriert
+
+function createKonto($conn)
+{
+    $bic = "GUMMI99XXX";
+    $kontostand = 0;
+    $iban = createIban();
+    $verfuegernummer = createVerfueger();
+
+    $sql = "INSERT INTO konto (kokontostand, koiban, kobic, koverfueger) VALUES (?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql))
+    {
+        header("location: ../register.php?error=stmtfailed");
+        exit();
+    }
+
+        mysqli_stmt_bind_param($stmt, "ssss", $kontostand, $iban, $bic, $verfuegernummer);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../register.php?error=none");
+        exit();
+
+}
+
+function createIban()
+{
+    $kontonummer = "";
+    define('iban', 'AT9912345');
+
+    for ($i = 0; $i<3; $i++)
+    {
+        $z1 = rand(0, 9);
+        $z2 = rand(0,9);
+        $kontonummer = $kontonummer .$z1 .$z2;
+    }
+    $ibangesamt = iban .$kontonummer;
+    return $ibangesamt;
+}
+
+function createVerfueger()
+{
+    $verfuegernummer = "";
+
+    for ($i = 0; $i<5; $i++)
+    {
+        $z1 = rand(0, 9);
+        $z2 = rand(0,9);
+        $verfuegernummer = $verfuegernummer .$z1 .$z2;
+    }
+    return $verfuegernummer;
 }

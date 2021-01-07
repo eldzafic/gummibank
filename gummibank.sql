@@ -19,3 +19,14 @@ kadresse VARCHAR(128),
 kpasswort VARCHAR(128),
 kverfuegernummer INT(25)
 );
+
+CREATE TABLE IF NOT EXISTS konto (
+koid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+kokontostand VARCHAR(128),
+koeinzahlung VARCHAR(128),
+koauszahlung INT(15),
+koiban VARCHAR(128),
+kobic VARCHAR(128),
+koverfueger VARCHAR(128),
+kid INT(10)
+);

@@ -2,7 +2,12 @@
     include_once 'header.php';
 ?>
 
-    <p>Willkommen zum Dashboard.</p>
+<?php
+    if(isset($_SESSION["lastname"]))
+    {
+        echo "<p>Willkommen zurück Herr " .$_SESSION["lastname"] ."!</p>";
+    }
+?>
 
 <?php
 include_once 'footer.php';
