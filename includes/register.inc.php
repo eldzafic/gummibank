@@ -62,7 +62,6 @@ if(isset($_POST["submit"]))
     }
 
     createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password);
-    createKonto($conn);
 }
 else
 {

@@ -133,6 +133,9 @@ function emailExists($conn, $email)
 
 function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password)
 {
+
+    //Hier wird ein Kunde erstellt
+
     $sql = "INSERT INTO kunden (kvorname, knachname, ktelefonnummer, kemail, kadresse, kpasswort) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql))
@@ -146,8 +149,49 @@ function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $ad
     mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $telephonenumber, $email, $adress, $hashedPassword);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    //header("location: ../register.php?error=none");
-    ///exit();
+
+    //Hier wird mithilfe der E-Mail Adresse ein die ID aus der Tabelle kunden entnommen
+
+    $bic = "GUMMI99XXX";
+    $kontostand = 0;
+    $iban = createIban();
+    $verfuegernummer = createVerfueger();
+
+    $sql = "SELECT kid FROM kunden WHERE kemail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql))
+    {
+        header("location: ../register.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $kid);
+
+    $kundeId = null;
+    while(mysqli_stmt_fetch($stmt))
+    {
+        $kundeId = $kid;
+    }
+    mysqli_stmt_close($stmt);
+
+    //Hier wird ein Konto für den Kunden angelegt
+
+    $sql = "INSERT INTO konto (kokontostand, koiban, kobic, koverfueger, kid) VALUES (?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql))
+    {
+        header("location: ../register.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sssss", $kontostand, $iban, $bic, $verfuegernummer, $kundeId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../register.php?error=none");
+    exit();
 }
 
 
@@ -198,29 +242,6 @@ function loginUser($conn, $benutzer, $kennwort)
 
 
 //Funktionen für erstellung von einem Konto wenn sich der Kunde registriert
-
-function createKonto($conn)
-{
-    $bic = "GUMMI99XXX";
-    $kontostand = 0;
-    $iban = createIban();
-    $verfuegernummer = createVerfueger();
-
-    $sql = "INSERT INTO konto (kokontostand, koiban, kobic, koverfueger) VALUES (?, ?, ?, ?);";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $sql))
-    {
-        header("location: ../register.php?error=stmtfailed");
-        exit();
-    }
-
-        mysqli_stmt_bind_param($stmt, "ssss", $kontostand, $iban, $bic, $verfuegernummer);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        header("location: ../register.php?error=none");
-        exit();
-
-}
 
 function createIban()
 {
