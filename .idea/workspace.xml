@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Bankkonto wird erstellt nach registrierung, join funktioniert aber nocht nicht (Tabelle konto bekommt keine Kunden-ID).">
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Fehler wurde behoben, nun wird automatisch ein Bankkonto erstellt wenn sich ein Kunde registriert und die zuordnung erfolgt über die Kunden-ID aus der Datenbank.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gummibank.sql" beforeDir="false" afterPath="$PROJECT_DIR$/gummibank.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/functions.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions.inc.php" afterDir="false" />
@@ -78,7 +78,11 @@
       <workItem from="1609886442977" duration="11771000" />
       <workItem from="1609938185123" duration="13328000" />
       <workItem from="1610015447137" duration="62000" />
-      <workItem from="1610033026711" duration="12877000" />
+      <workItem from="1610033026711" duration="13475000" />
+      <workItem from="1610282723697" duration="19000" />
+      <workItem from="1610352946578" duration="2147000" />
+      <workItem from="1610918346356" duration="14000" />
+      <workItem from="1611350428447" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -122,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610055595120</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fehler wurde behoben, nun wird automatisch ein Bankkonto erstellt wenn sich ein Kunde registriert und die zuordnung erfolgt über die Kunden-ID aus der Datenbank.">
+      <created>1610064620503</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610064620503</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +158,8 @@
     <MESSAGE value="Registrierung in die Datenbank funktioniert. Validierungen wurden auch erstellt" />
     <MESSAGE value="Registrierung/Login funktioniert" />
     <MESSAGE value="Bankkonto wird erstellt nach registrierung, join funktioniert aber nocht nicht (Tabelle konto bekommt keine Kunden-ID)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bankkonto wird erstellt nach registrierung, join funktioniert aber nocht nicht (Tabelle konto bekommt keine Kunden-ID)." />
+    <MESSAGE value="Fehler wurde behoben, nun wird automatisch ein Bankkonto erstellt wenn sich ein Kunde registriert und die zuordnung erfolgt über die Kunden-ID aus der Datenbank." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fehler wurde behoben, nun wird automatisch ein Bankkonto erstellt wenn sich ein Kunde registriert und die zuordnung erfolgt über die Kunden-ID aus der Datenbank." />
   </component>
   <component name="WindowStateProjectService">
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1609708248614">
@@ -158,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609965707176" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1609702485766">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1610918358210">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702485766" />
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1610918358210" />
     <state x="833" y="418" key="Github.ShareDialog" timestamp="1609702576781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -178,10 +190,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610055599140">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610064623419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1610055599140" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1610064623419" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -194,9 +206,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610055539615">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610064561706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1610055539615" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1610064561706" />
   </component>
 </project>

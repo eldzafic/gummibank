@@ -131,12 +131,12 @@ function emailExists($conn, $email)
     mysqli_stmt_close($stmt);
 }
 
-function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password)
+function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password, $employee)
 {
 
     //Hier wird ein Kunde erstellt
 
-    $sql = "INSERT INTO kunden (kvorname, knachname, ktelefonnummer, kemail, kadresse, kpasswort) VALUES (?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO kunden (kvorname, knachname, ktelefonnummer, kemail, kadresse, kpasswort, kmitarbeiter) VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql))
     {
@@ -146,7 +146,7 @@ function createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $ad
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $telephonenumber, $email, $adress, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $telephonenumber, $email, $adress, $hashedPassword, $employee);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

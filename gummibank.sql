@@ -16,7 +16,8 @@ knachname VARCHAR(128),
 ktelefonnummer INT(15),
 kemail VARCHAR(128),
 kadresse VARCHAR(128),
-kpasswort VARCHAR(128)
+kpasswort VARCHAR(128),
+kmitarbeiter BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS konto (

@@ -9,6 +9,7 @@ if(isset($_POST["submit"]))
     $adress = $_POST["adress"];
     $password = $_POST["pwd"];
     $password2 = $_POST["pwd2"];
+    $employee = false;
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
@@ -61,7 +62,7 @@ if(isset($_POST["submit"]))
         exit();
     }
 
-    createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password);
+    createKunde($conn, $firstname, $lastname, $telephonenumber, $email, $adress, $password, $employee);
 }
 else
 {
