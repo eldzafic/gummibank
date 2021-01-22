@@ -4,11 +4,7 @@ CREATE DATABASE gummibaerbank;
 USE gummibaerbank;
 
 #Tabellen erstellen
-CREATE TABLE IF NOT EXISTS mitarbeiter(
-mid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-mvorname VARCHAR(128),
-mpasswort VARCHAR(128)
-);
+
 CREATE TABLE IF NOT EXISTS kunden (
 kid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 kvorname VARCHAR(128),
@@ -27,4 +23,16 @@ koiban VARCHAR(128),
 kobic VARCHAR(128),
 koverfueger VARCHAR(128),
 kid INT(10)
+);
+
+CREATE TABLE IF NOT EXISTS ueberweisung (
+uid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+uibansender VARCHAR(128),
+ubicsenden VARCHAR(128),
+uibanempfaenger VARCHAR(128),
+ubicempfaenger VARCHAR(128),
+uzahlungsreferenz VARCHAR(128),
+uverwendungszweck VARCHAR(128),
+ubetrag INT(10),
+udatum DATETIME
 );

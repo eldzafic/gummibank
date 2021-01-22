@@ -20,6 +20,7 @@
                     if(isset($_SESSION["userid"]))
                     {
                         echo "<a class='nav-link active' href='dashboard.php'>Dashboard</a>";
+                        echo "<a class='nav-link active' href='ueberweisung.php'>Dashboard</a>";
                         echo "<a class='nav-link active' href='includes/logout.inc.php'>Logout</a>";
                     }
                     else
