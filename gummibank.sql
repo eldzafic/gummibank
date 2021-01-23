@@ -34,5 +34,6 @@ ubicempfaenger VARCHAR(128),
 uzahlungsreferenz VARCHAR(128),
 uverwendungszweck VARCHAR(128),
 ubetrag INT(10),
-udatum DATETIME
+udatum DATETIME,
+kid INT(10)
 );

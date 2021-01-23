@@ -1,17 +1,25 @@
 <?php
 include_once 'header.php';
+require 'includes/Ueberweisung.php';
+?>
+
+<?php
+    if(isset($_POST['submit']))
+    {
+        $u = new Ueberweisung();
+        $u->setUibanempfaenger($_POST['empfaengeriban']);
+        $u->setUbicempfaenger($_POST['empfaengerbic']);
+        $u->setUzahlungsreferenz($_POST['zahlungsreferenz']);
+        $u->setUverwendungszweck($_POST['verwendungszweck']);
+        $u->setUbetrag($_POST['betrag']);
+
+        $u->createUeberweisung();
+    }
+
 ?>
 
 
-<form action="#" method="post">
-    <div class="form-group">
-        <label for="absenderiban">Absender-IBAN</label>
-        <input type="text" class="form-control" name="absenderiban" required>
-    </div>
-    <div class="form-group">
-        <label for="absenderbic">Absender-BIC</label>
-        <input type="text" class="form-control" name="absenderbic" required>
-    </div>
+<form action="ueberweisung.php" method="post">
     <div class="form-group">
         <label for="empfaengeriban">Empfänger-IBAN</label>
         <input type="text" class="form-control" name="empfaengeriban" required>
