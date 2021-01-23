@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Überweisungsformular hinzugefügt">
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="PDO für DB, Überweisung-Form bearbeitet, Überweisung-Klasse erstellt mit create-Funktion, IBANsender und BICsender funktioniert noch nicht">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gummibank.sql" beforeDir="false" afterPath="$PROJECT_DIR$/gummibank.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Ueberweisung.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Ueberweisung.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ueberweisung.php" beforeDir="false" afterPath="$PROJECT_DIR$/ueberweisung.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,8 @@
       <workItem from="1610282723697" duration="19000" />
       <workItem from="1610352946578" duration="2147000" />
       <workItem from="1610918346356" duration="14000" />
-      <workItem from="1611350428447" duration="9623000" />
+      <workItem from="1611350428447" duration="9810000" />
+      <workItem from="1611404489879" duration="5652000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -154,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611352662890</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="PDO für DB, Überweisung-Form bearbeitet, Überweisung-Klasse erstellt mit create-Funktion, IBANsender und BICsender funktioniert noch nicht">
+      <created>1611363461428</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611363461428</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,13 +192,14 @@
     <MESSAGE value="Fehler wurde behoben, nun wird automatisch ein Bankkonto erstellt wenn sich ein Kunde registriert und die zuordnung erfolgt über die Kunden-ID aus der Datenbank." />
     <MESSAGE value="Unterscheidung Mitarbeiter/Kunde über Boolean" />
     <MESSAGE value="Überweisungsformular hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Überweisungsformular hinzugefügt" />
+    <MESSAGE value="PDO für DB, Überweisung-Form bearbeitet, Überweisung-Klasse erstellt mit create-Funktion, IBANsender und BICsender funktioniert noch nicht" />
+    <option name="LAST_COMMIT_MESSAGE" value="PDO für DB, Überweisung-Form bearbeitet, Überweisung-Klasse erstellt mit create-Funktion, IBANsender und BICsender funktioniert noch nicht" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1611358410786">
+    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1611405278916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611358410786" />
+    <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611405278916" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609965707176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -217,10 +228,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611352664904">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611363463497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611352664904" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611363463497" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -233,9 +244,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611358404608">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611405273434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611358404608" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611405273434" />
   </component>
 </project>

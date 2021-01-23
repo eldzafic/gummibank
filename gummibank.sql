@@ -28,7 +28,7 @@ kid INT(10)
 CREATE TABLE IF NOT EXISTS ueberweisung (
 uid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 uibansender VARCHAR(128),
-ubicsenden VARCHAR(128),
+ubicsender VARCHAR(128),
 uibanempfaenger VARCHAR(128),
 ubicempfaenger VARCHAR(128),
 uzahlungsreferenz VARCHAR(128),

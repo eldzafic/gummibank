@@ -11,6 +11,7 @@ class Ueberweisung
     private $uverwendungszweck;
     private $ubetrag;
     private $udatum;
+    private $kid;
 
 
     /**
@@ -19,15 +20,30 @@ class Ueberweisung
     public function __construct()
     {
         $this->udatum = date("Y-m-d H:i:s");
+        $this->getSenderBicIban();
     }
 
     public function createUeberweisung()
     {
         $pdo = Db::connect();
-        $sql = "INSERT INTO ueberweisung (uibansender, ubicsenden, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        $sql = "INSERT INTO ueberweisung (uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum, kid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$this->uibansender, $this->ubicsender, $this->uibanempfaenger, $this->ubicempfaenger, $this->uzahlungsreferenz, $this->uverwendungszweck, $this->ubetrag, $this->udatum]);
+        $stmt->execute([$this->uibansender, $this->ubicsender, $this->uibanempfaenger, $this->ubicempfaenger, $this->uzahlungsreferenz, $this->uverwendungszweck, $this->ubetrag, $this->udatum, $this->kid]);
     }
+
+    public function getSenderBicIban()
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT koiban, kobic FROM konto WHERE kid='" .$_SESSION['userid'] ."';";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->setUibansender($result['koiban']);
+        $this->setUbicsender($result['kobic']);
+    }
+
+
 
 
 

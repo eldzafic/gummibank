@@ -12,6 +12,7 @@ require 'includes/Ueberweisung.php';
         $u->setUzahlungsreferenz($_POST['zahlungsreferenz']);
         $u->setUverwendungszweck($_POST['verwendungszweck']);
         $u->setUbetrag($_POST['betrag']);
+        $u->setKid($_SESSION['userid']);
 
         $u->createUeberweisung();
     }
