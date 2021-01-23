@@ -235,6 +235,7 @@ function loginUser($conn, $benutzer, $kennwort)
         session_start();
         $_SESSION["userid"] = $emailExists["kid"];
         $_SESSION["lastname"] = $emailExists["knachname"];
+        $_SESSION["mitarbeiter"] = $emailExists["kmitarbeiter"];
         header("location: ../index.php");
         exit();
     }

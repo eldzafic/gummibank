@@ -19,9 +19,17 @@
                 <?php
                     if(isset($_SESSION["userid"]))
                     {
-                        echo "<a class='nav-link active' href='dashboard.php'>Dashboard</a>";
-                        echo "<a class='nav-link active' href='ueberweisung.php'>Überweisung</a>";
-                        echo "<a class='nav-link active' href='includes/logout.inc.php'>Logout</a>";
+                        if($_SESSION["mitarbeiter"] === 1)
+                        {
+                            echo "<a class='nav-link active' href='mitarbeiter.php'>Mitarbeiter</a>";
+                            echo "<a class='nav-link active' href='includes/logout.inc.php'>Logout</a>";
+                        }
+                        else
+                        {
+                            echo "<a class='nav-link active' href='dashboard.php'>Dashboard</a>";
+                            echo "<a class='nav-link active' href='ueberweisung.php'>Überweisung</a>";
+                            echo "<a class='nav-link active' href='includes/logout.inc.php'>Logout</a>";
+                        }
                     }
                     else
                     {

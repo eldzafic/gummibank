@@ -18,7 +18,6 @@ include_once 'includes/Ueberweisung.php';
         $betrag = $_POST['betrag'];
         Ueberweisung::auszahlungSchalter($iban, $betrag);
     }
-
 ?>
 
 <form action="mitarbeiter.php" method="post">
