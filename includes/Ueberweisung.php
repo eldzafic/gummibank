@@ -43,29 +43,15 @@ class Ueberweisung
         $this->setUbicsender($result['kobic']);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function getAll()
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE kid='" .$_SESSION['userid'] ."'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
     /**
      * @return mixed
