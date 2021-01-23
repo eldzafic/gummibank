@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Überweisung funktioniert">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Ueberweisung.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Ueberweisung.php" afterDir="false" />
-    </list>
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Alle Überweisungen eines Kunden werden in seinem Dashboard ausgegeben." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +78,7 @@
       <workItem from="1610352946578" duration="2147000" />
       <workItem from="1610918346356" duration="14000" />
       <workItem from="1611350428447" duration="9810000" />
-      <workItem from="1611404489879" duration="12280000" />
+      <workItem from="1611404489879" duration="12921000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -169,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611410200646</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Alle Überweisungen eines Kunden werden in seinem Dashboard ausgegeben.">
+      <created>1611419384190</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611419384190</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +201,8 @@
     <MESSAGE value="Überweisungsformular hinzugefügt" />
     <MESSAGE value="PDO für DB, Überweisung-Form bearbeitet, Überweisung-Klasse erstellt mit create-Funktion, IBANsender und BICsender funktioniert noch nicht" />
     <MESSAGE value="Überweisung funktioniert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Überweisung funktioniert" />
+    <MESSAGE value="Alle Überweisungen eines Kunden werden in seinem Dashboard ausgegeben." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alle Überweisungen eines Kunden werden in seinem Dashboard ausgegeben." />
   </component>
   <component name="WindowStateProjectService">
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1611405278916">
@@ -234,10 +237,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611410202988">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611419386190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611410202988" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611419386190" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -250,9 +253,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611410183145">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611419351175">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611410183145" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1611419351174" />
   </component>
 </project>
