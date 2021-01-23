@@ -53,6 +53,22 @@ class Ueberweisung
         return $result;
     }
 
+    public function einzahlungSchalter($iban, $betrag)
+    {
+        $pdo = Db::connect();
+        $sql = "UPDATE konto SET kokontostand = (kokontostand + ?) WHERE koiban = ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($betrag, $iban));
+    }
+
+    public function auszahlungSchalter($iban, $betrag)
+    {
+        $pdo = Db::connect();
+        $sql = "UPDATE konto SET kokontostand = (kokontostand - ?) WHERE koiban = ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($betrag, $iban));
+    }
+
     /**
      * @return mixed
      */
