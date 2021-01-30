@@ -281,3 +281,13 @@ function getDashboardData()
     $result = $stmt->fetchAll();
     return $result;
 }
+
+function getAllKundenData()
+{
+    $pdo = Db::connect();
+    $sql = "SELECT * FROM kunde ;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array($kundeiban, $kundeiban, $datumvon, $datumbis));
+    $result = $stmt->fetchAll();
+    return $result;
+}

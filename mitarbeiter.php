@@ -10,6 +10,19 @@ include_once 'includes/Ueberweisung.php';
         $iban = $_POST['iban'];
         $betrag = $_POST['betrag'];
         Ueberweisung::einzahlungSchalter($iban, $betrag);
+
+        $u = new Ueberweisung();
+        $u->setUibansender("BANK");
+        $u->setUbicsender("GUMMI99XXX");
+        $u->setUibanempfaenger($_POST['iban']);
+        $u->setUbicempfaenger("GUMMI99XXX");
+        $u->setUzahlungsreferenz("-");
+        $u->setUverwendungszweck("EINZAHLUNG");
+        $u->setUbetrag($_POST['betrag']);
+        $u->setKid(0);
+
+        $u->createUeberweisung();
+
     }
 
     if(isset($_POST['auszahlung']))
@@ -17,6 +30,18 @@ include_once 'includes/Ueberweisung.php';
         $iban = $_POST['iban'];
         $betrag = $_POST['betrag'];
         Ueberweisung::auszahlungSchalter($iban, $betrag);
+
+        $u = new Ueberweisung();
+        $u->setUibansender($_POST['iban']);
+        $u->setUbicsender("GUMMI99XXX");
+        $u->setUibanempfaenger("BANK");
+        $u->setUbicempfaenger("GUMMI99XXX");
+        $u->setUzahlungsreferenz("-");
+        $u->setUverwendungszweck("AUSZAHLUNG");
+        $u->setUbetrag($_POST['betrag']);
+        $u->setKid(0);
+
+        $u->createUeberweisung();
     }
 ?>
 
