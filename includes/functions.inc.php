@@ -271,3 +271,13 @@ function createVerfueger()
     }
     return $verfuegernummer;
 }
+
+function getDashboardData()
+{
+    $pdo = Db::connect();
+    $sql = "SELECT kokontostand, koiban FROM konto WHERE kid=?;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array($_SESSION['userid']));
+    $result = $stmt->fetchAll();
+    return $result;
+}

@@ -43,12 +43,12 @@ class Ueberweisung
         $this->setUbicsender($result['kobic']);
     }
 
-    public function getAll()
+    public function getAll($kundeiban)
     {
         $pdo = Db::connect();
-        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE kid='" .$_SESSION['userid'] ."'";
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE uibansender = ? OR uibanempfaenger = ?;";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute(array($kundeiban, $kundeiban));
         $result = $stmt->fetchAll();
         return $result;
     }
@@ -67,6 +67,26 @@ class Ueberweisung
         $sql = "UPDATE konto SET kokontostand = (kokontostand - ?) WHERE koiban = ?;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($betrag, $iban));
+    }
+
+    public function getAllDatum($kundeiban, $datum)
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE CONVERT(udatum, CHAR) LIKE CONCAT( '%',?,'%') AND (uibansender = ? OR uibanempfaenger = ?);" ;
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($datum, $kundeiban, $kundeiban));
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getAllDatumVonBis($kundeiban, $datumvon, $datumbis)
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE (uibansender = ? OR uibanempfaenger = ?) AND udatum BETWEEN ? AND ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($kundeiban, $kundeiban, $datumvon, $datumbis));
+        $result = $stmt->fetchAll();
+        return $result;
     }
 
     /**
