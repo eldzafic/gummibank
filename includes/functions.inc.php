@@ -1,4 +1,5 @@
 <?php
+require_once 'Db.php';
 
 function emptyInputSignup($firstname, $lastname, $telephonenumber, $email, $adress, $password, $password2)
 {
@@ -282,12 +283,12 @@ function getDashboardData()
     return $result;
 }
 
-function getAllKundenData()
+function getAllKundenData($iban)
 {
     $pdo = Db::connect();
-    $sql = "SELECT * FROM kunde ;";
+    $sql = "SELECT ku.kvorname, ku.knachname, ko.kokontostand FROM kunden ku INNER JOIN konto ko ON ku.kid = ko.kid WHERE ko.koiban = ?;";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(array($kundeiban, $kundeiban, $datumvon, $datumbis));
+    $stmt->execute(array($iban));
     $result = $stmt->fetchAll();
     return $result;
 }

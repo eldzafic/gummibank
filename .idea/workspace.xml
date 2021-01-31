@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Sortierung angefangen">
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Ein/Aus-Zahlung wird jetzt im Dashboard angezeigt. Beleg.php angefangen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beleg.php" beforeDir="false" afterPath="$PROJECT_DIR$/beleg.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/functions.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mitarbeiter.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitarbeiter.php" afterDir="false" />
     </list>
@@ -87,7 +88,8 @@
       <workItem from="1611508015897" duration="7259000" />
       <workItem from="1611561333249" duration="925000" />
       <workItem from="1611962990908" duration="5316000" />
-      <workItem from="1612007546440" duration="19007000" />
+      <workItem from="1612007546440" duration="19110000" />
+      <workItem from="1612050810820" duration="6713000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -208,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612025218482</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Ein/Aus-Zahlung wird jetzt im Dashboard angezeigt. Beleg.php angefangen">
+      <created>1612031861577</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1612031861577</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +251,8 @@
     <MESSAGE value="Ein/Auszahlung hinzugefügt" />
     <MESSAGE value="Unterscheidung Mitarbeiter/Kunden beim Einloggen erledigt" />
     <MESSAGE value="Sortierung angefangen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sortierung angefangen" />
+    <MESSAGE value="Ein/Aus-Zahlung wird jetzt im Dashboard angezeigt. Beleg.php angefangen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ein/Aus-Zahlung wird jetzt im Dashboard angezeigt. Beleg.php angefangen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1611405278916">
@@ -277,10 +287,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612025221342">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612031863490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612025221342" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612031863490" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -293,9 +303,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612025200557">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612053330275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612025200557" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612053330275" />
   </component>
 </project>

@@ -7,8 +7,11 @@ include_once 'includes/Ueberweisung.php';
 
     if(isset($_POST['submit']))
     {
+        $_SESSION['art'] = "einzahlung";
         $iban = $_POST['iban'];
+        $_SESSION['iban'] = $iban;
         $betrag = $_POST['betrag'];
+        $_SESSION['betrag'] = $betrag;
         Ueberweisung::einzahlungSchalter($iban, $betrag);
 
         $u = new Ueberweisung();
@@ -23,12 +26,17 @@ include_once 'includes/Ueberweisung.php';
 
         $u->createUeberweisung();
 
+        header("location: beleg.php");
+
     }
 
     if(isset($_POST['auszahlung']))
     {
+        $_SESSION['art'] = "auszahlung";
         $iban = $_POST['iban'];
+        $_SESSION['iban'] = $iban;
         $betrag = $_POST['betrag'];
+        $_SESSION['betrag'] = $betrag;
         Ueberweisung::auszahlungSchalter($iban, $betrag);
 
         $u = new Ueberweisung();
@@ -42,7 +50,10 @@ include_once 'includes/Ueberweisung.php';
         $u->setKid(0);
 
         $u->createUeberweisung();
+
+        header("location: beleg.php");
     }
+
 ?>
 
 <form action="mitarbeiter.php" method="post">
