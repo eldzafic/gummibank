@@ -30,11 +30,35 @@ if (isset($_POST['submit']))
     {
         $result = Ueberweisung::getAllDatum($kundeiban, $_POST['datumgenau']);
     }
-    if($_POST['datumvon'] && $_POST['datumbis'] != "")
+    else if($_POST['datumvon'] && $_POST['datumbis'] != "")
     {
         $result = Ueberweisung::getAllDatumVonBis($kundeiban, $_POST['datumvon'], $_POST['datumbis']);
+    }else
+    {
+        $result = Ueberweisung::getAll($kundeiban);
     }
-    if($_POST['datumgenau'] && $_POST['datumvon'] && $_POST['datumbis'] === "")
+}
+else if (isset($_POST['submitbetrag']))
+{
+    if($_POST['betraggenau'] != null)
+    {
+        $result = Ueberweisung::getAllBetrag($kundeiban, $_POST['betraggenau']);
+    }
+    else if($_POST['betragvon'] && $_POST['betragbis'] != "")
+    {
+        $result = Ueberweisung::getAllBetragVonBis($kundeiban, $_POST['betragvon'], $_POST['betragbis']);
+    }else
+    {
+        $result = Ueberweisung::getAll($kundeiban);
+    }
+}
+else if (isset($_POST['submittext']))
+{
+    if($_POST['referenzoderverwendung'] != null)
+    {
+        $result = Ueberweisung::getAllInfo($kundeiban, $_POST['referenzoderverwendung']);
+    }
+    else
     {
         $result = Ueberweisung::getAll($kundeiban);
     }
@@ -53,8 +77,7 @@ else
     <div class="container">
 
         <table class="table">
-            <thead>
-                <tr>
+            <thead>                <tr>
                     <th scope="col">IBAN-Sender</th>
                     <th scope="col">BIC-Sender</th>
                     <th scope="col">IBAN-Empfänger</th>
@@ -88,8 +111,28 @@ else
                         <label for="datumbis">Datum bis</label>
                         <input type="date" class="form-control" name="datumbis">
                     </div>
+                    <button type="submit" name="submit" class="btn btn-default bg-dark">Sortieren Datum</button>
+                    <div class="form-group">
+                        <label for="betraggenau">Genauer Betrag</label>
+                        <input type="number" class="form-control" name="betraggenau">
+                    </div>
+                    <div class="form-group">
+                        <label for="betragvon">Betrag von</label>
+                        <input type="number" class="form-control" name="betragvon">
+                    </div>
+                    <div class="form-group">
+                        <label for="betragbis">Betrag bis</label>
+                        <input type="number" class="form-control" name="betragbis">
+                    </div>
 
-                    <button type="submit" name="submit" class="btn btn-default bg-dark">Sortieren</button>
+                    <button type="submit" name="submitbetrag" class="btn btn-default bg-dark">Sortieren Betrag</button>
+
+                    <div class="form-group">
+                        <label for="referenzoderverwendung">Zahlungsreferenz oder Verwendungszweck</label>
+                        <input type="text" class="form-control" name="referenzoderverwendung">
+                    </div>
+
+                    <button type="submit" name="submittext" class="btn btn-default bg-dark">Sortieren Infos</button>
                 </form>
 
 

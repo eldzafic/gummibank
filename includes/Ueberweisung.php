@@ -82,9 +82,37 @@ class Ueberweisung
     public function getAllDatumVonBis($kundeiban, $datumvon, $datumbis)
     {
         $pdo = Db::connect();
-        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE (uibansender = ? OR uibanempfaenger = ?) AND udatum BETWEEN ? AND ?;";
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE (uibansender = ? OR uibanempfaenger = ?) AND CONVERT (udatum,CHAR) BETWEEN ? AND ?;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array($kundeiban, $kundeiban, $datumvon, $datumbis));
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+    public function getAllBetrag($kundeiban, $betrag)
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE ubetrag LIKE ? AND (uibansender = ? OR uibanempfaenger = ?);" ;
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($betrag, $kundeiban, $kundeiban));
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getAllBetragVonBis($kundeiban, $betragvon, $betragbis)
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE (uibansender = ? OR uibanempfaenger = ?) AND ubetrag BETWEEN ? AND ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($kundeiban, $kundeiban, $betragvon, $betragbis));
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+    public function getAllInfo($kundeiban, $info )
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum FROM ueberweisung WHERE (uverwendungszweck LIKE ? OR uzahlungsreferenz LIKE ?) AND (uibansender = ? OR uibanempfaenger = ?);" ;
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($info,$info,$kundeiban,$kundeiban));
         $result = $stmt->fetchAll();
         return $result;
     }
