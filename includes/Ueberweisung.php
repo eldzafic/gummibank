@@ -23,12 +23,30 @@ class Ueberweisung
         $this->getSenderBicIban();
     }
 
+    public function updateKontostandSender()
+    {
+        $pdo = Db::connect();
+        $sql = "UPDATE konto SET kokontostand = (kokontostand - ?) WHERE kid = ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->ubetrag, $this->kid));
+    }
+
+    public function updateKontostandEmpfaenger()
+    {
+        $pdo = Db::connect();
+        $sql = "UPDATE konto SET kokontostand = (kokontostand + ?) WHERE koiban = ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($this->ubetrag, $this->uibanempfaenger));
+    }
+
     public function createUeberweisung()
     {
         $pdo = Db::connect();
         $sql = "INSERT INTO ueberweisung (uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum, kid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$this->uibansender, $this->ubicsender, $this->uibanempfaenger, $this->ubicempfaenger, $this->uzahlungsreferenz, $this->uverwendungszweck, $this->ubetrag, $this->udatum, $this->kid]);
+        self::updateKontostandSender();
+        self::updateKontostandEmpfaenger();
     }
 
     public function getSenderBicIban()
