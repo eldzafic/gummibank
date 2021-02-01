@@ -7,7 +7,7 @@
 <?php
     if(isset($_SESSION["lastname"]))
     {
-        echo "<p>Willkommen zurück Herr " .$_SESSION["lastname"] ."!</p>";
+        echo "<h2 class='text-center'>Willkommen zurück, Herr/Frau " .$_SESSION["lastname"] ."!</h2>";
     }
 ?>
 
@@ -72,8 +72,6 @@ else
 
 ?>
 
-
-
     <div class="container">
 
         <table class="table">
@@ -95,10 +93,13 @@ else
                     echo "<p>Ihre Kontonummer lautet: <b>" .$kontonummer ."</b></p>";
             ?>
 
-            <div class="container">
+            <button id="filteranzeigen" type="button" class="btn btn-primary" onclick="myFunction()">Filter anzeigen</button>
+            <button id="filterausblenden" type="button" class="btn btn-primary" onclick="filterAusblenden()" hidden>Filter ausblenden</button>
+
+            <div class="container" id="filter" hidden>
 
 
-                <form action="dashboard.php" method="post">
+                <form action="dashboard.php" method="post" id="filter">
                     <div class="form-group">
                         <label for="datumgenau">Genaues Datum</label>
                         <input type="date" class="form-control" name="datumgenau">
@@ -138,6 +139,18 @@ else
 
             </div>
 
+            <script>
+                function myFunction() {
+                    document.getElementById("filter").removeAttribute("hidden");
+                    document.getElementById("filteranzeigen").setAttribute("hidden","");
+                    document.getElementById("filterausblenden").removeAttribute("hidden","");
+                }
+                function filterAusblenden() {
+                    document.getElementById("filter").setAttribute("hidden","");
+                    document.getElementById("filterausblenden").setAttribute("hidden","");
+                    document.getElementById("filteranzeigen").removeAttribute("hidden","");
+                }
+            </script>
 
             <?php
 

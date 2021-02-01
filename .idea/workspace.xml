@@ -22,9 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="Sortierung hinzugefügt">
+    <list default="true" id="4f073a01-9ce1-4380-b198-695d135edbe7" name="Default Changelist" comment="projekt vollständig, es fehlen noch ein paar Validierungen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Ueberweisung.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Ueberweisung.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitarbeiter.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitarbeiter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueberweisung.php" beforeDir="false" afterPath="$PROJECT_DIR$/ueberweisung.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,8 @@
       <workItem from="1612007546440" duration="19110000" />
       <workItem from="1612050810820" duration="7498000" />
       <workItem from="1612058517439" duration="119000" />
-      <workItem from="1612095737695" duration="1018000" />
+      <workItem from="1612095737695" duration="1141000" />
+      <workItem from="1612132683332" duration="12829000" />
     </task>
     <task id="LOCAL-00001" summary="etwas erweitert">
       <created>1609772652327</created>
@@ -234,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612058550880</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="projekt vollständig, es fehlen noch ein paar Validierungen">
+      <created>1612096846060</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1612096846060</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +282,8 @@
     <MESSAGE value="Ein/Aus-Zahlung wird jetzt im Dashboard angezeigt. Beleg.php angefangen" />
     <MESSAGE value="Beleg hinzugefügt" />
     <MESSAGE value="Sortierung hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sortierung hinzugefügt" />
+    <MESSAGE value="projekt vollständig, es fehlen noch ein paar Validierungen" />
+    <option name="LAST_COMMIT_MESSAGE" value="projekt vollständig, es fehlen noch ein paar Validierungen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="753" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1611405278916">
@@ -306,10 +318,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609702469577" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612058556970">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612096848835">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612058556970" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612096848835" />
     <state x="94" y="100" width="1392" height="1027" key="dock-window-1" timestamp="1609887974615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -322,9 +334,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="953" y="0" width="974" height="1047" key="dock-window-3/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1609891000087" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612058530364">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612096788813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612058530364" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1680.-45.1680.1010@0.0.1920.1040" timestamp="1612096788813" />
   </component>
 </project>

@@ -87,6 +87,24 @@ class Ueberweisung
         $stmt->execute(array($betrag, $iban));
     }
 
+    public function validateAuszahlung($iban)
+    {
+        $pdo = Db::connect();
+        $sql = "SELECT kokontostand FROM konto WHERE koiban = ? OR kid = ?;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($iban, $iban));
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function createUeberweisungSchalter()
+    {
+        $pdo = Db::connect();
+        $sql = "INSERT INTO ueberweisung (uibansender, ubicsender, uibanempfaenger, ubicempfaenger, uzahlungsreferenz, uverwendungszweck, ubetrag, udatum, kid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$this->uibansender, $this->ubicsender, $this->uibanempfaenger, $this->ubicempfaenger, $this->uzahlungsreferenz, $this->uverwendungszweck, $this->ubetrag, $this->udatum, $this->kid]);
+    }
+
     public function getAllDatum($kundeiban, $datum)
     {
         $pdo = Db::connect();
@@ -133,6 +151,78 @@ class Ueberweisung
         $stmt->execute(array($info,$info,$kundeiban,$kundeiban));
         $result = $stmt->fetchAll();
         return $result;
+    }
+
+    public function validateUeberweisung($ibanempfanger, $bicempfaenger, $zahlungsreferenz, $verwendungszweck, $betrag)
+    {
+        if(self::validateUibanempfaenger($ibanempfanger) & self::validateUbicEmpfaenger($bicempfaenger) & self::validateZahlungsreferenz($zahlungsreferenz) & self::validateVerwendungszweck($verwendungszweck) & self::validateBetrag($betrag)== true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function validateUibanempfaenger($ibanempfaenger)
+    {
+        if(strpos($ibanempfaenger, 'AT9912345') !== false)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function validateUbicEmpfaenger($bicempfaenger)
+    {
+        if($bicempfaenger == 'GUMMI99XXX')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function validateZahlungsreferenz($zahlungsreferenz)
+    {
+        if(is_numeric($zahlungsreferenz))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function validateVerwendungszweck($verwendungszweck)
+    {
+        if(preg_match("/^[a-zA-Z]*$/", $verwendungszweck) == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function validateBetrag($betrag)
+    {
+        if(is_numeric($betrag))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**

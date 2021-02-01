@@ -6,19 +6,34 @@ require 'includes/Ueberweisung.php';
 <?php
     if(isset($_POST['submit']))
     {
-        $u = new Ueberweisung();
-        $u->setUibanempfaenger($_POST['empfaengeriban']);
-        $u->setUbicempfaenger($_POST['empfaengerbic']);
-        $u->setUzahlungsreferenz($_POST['zahlungsreferenz']);
-        $u->setUverwendungszweck($_POST['verwendungszweck']);
-        $u->setUbetrag($_POST['betrag']);
-        $u->setKid($_SESSION['userid']);
+        $k = Ueberweisung::validateAuszahlung($_SESSION['userid']);
+        $kontostandaktuell = $k['kokontostand'];
 
-        $u->createUeberweisung();
+        if($kontostandaktuell < $_POST['betrag'])
+        {
+            echo "<p class='text-danger'>Nicht genug Geld auf dem Konto</p>";
+        }
+        else
+        {
+            if(Ueberweisung::validateUeberweisung($_POST['empfaengeriban'], $_POST['empfaengerbic'], $_POST['zahlungsreferenz'], $_POST['verwendungszweck'], $_POST['betrag']))
+            {
+                $u = new Ueberweisung();
+                $u->setUibanempfaenger($_POST['empfaengeriban']);
+                $u->setUbicempfaenger($_POST['empfaengerbic']);
+                $u->setUzahlungsreferenz($_POST['zahlungsreferenz']);
+                $u->setUverwendungszweck($_POST['verwendungszweck']);
+                $u->setUbetrag($_POST['betrag']);
+                $u->setKid($_SESSION['userid']);
+
+                $u->createUeberweisung();
+            }
+            else
+            {
+                echo "<p class='text-danger'>Ungültige eingabe. Bitte alle Felder überprüfen!</p>";
+            }
+        }
     }
-
 ?>
-
 
 <form action="ueberweisung.php" method="post">
     <div class="form-group">
@@ -43,8 +58,6 @@ require 'includes/Ueberweisung.php';
     </div>
     <button type="submit" name="submit" class="btn btn-default bg-dark">Überweisen</button>
 </form>
-
-
 
 <?php
 include_once 'footer.php';

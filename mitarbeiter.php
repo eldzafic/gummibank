@@ -24,7 +24,7 @@ include_once 'includes/Ueberweisung.php';
         $u->setUbetrag($_POST['betrag']);
         $u->setKid(0);
 
-        $u->createUeberweisung();
+        $u->createUeberweisungSchalter();
 
         header("location: beleg.php");
 
@@ -37,23 +37,31 @@ include_once 'includes/Ueberweisung.php';
         $_SESSION['iban'] = $iban;
         $betrag = $_POST['betrag'];
         $_SESSION['betrag'] = $betrag;
-        Ueberweisung::auszahlungSchalter($iban, $betrag);
+        $k = Ueberweisung::validateAuszahlung($iban);
+        $kontostandaktuell = $k['kokontostand'];
 
-        $u = new Ueberweisung();
-        $u->setUibansender($_POST['iban']);
-        $u->setUbicsender("GUMMI99XXX");
-        $u->setUibanempfaenger("BANK");
-        $u->setUbicempfaenger("GUMMI99XXX");
-        $u->setUzahlungsreferenz("-");
-        $u->setUverwendungszweck("AUSZAHLUNG");
-        $u->setUbetrag($_POST['betrag']);
-        $u->setKid(0);
+        if($kontostandaktuell < $betrag)
+        {
+            echo "<p class='text-danger'>Kunde hat nicht genug Geld auf dem Konto</p>";
+        }
+        else {
+            Ueberweisung::auszahlungSchalter($iban, $betrag);
 
-        $u->createUeberweisung();
+            $u = new Ueberweisung();
+            $u->setUibansender($_POST['iban']);
+            $u->setUbicsender("GUMMI99XXX");
+            $u->setUibanempfaenger("BANK");
+            $u->setUbicempfaenger("GUMMI99XXX");
+            $u->setUzahlungsreferenz("-");
+            $u->setUverwendungszweck("AUSZAHLUNG");
+            $u->setUbetrag($_POST['betrag']);
+            $u->setKid(0);
 
-        header("location: beleg.php");
+            $u->createUeberweisungSchalter();
+
+            header("location: beleg.php");
+       }
     }
-
 ?>
 
 <form action="mitarbeiter.php" method="post">
